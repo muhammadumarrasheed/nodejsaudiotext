@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>OGG to Text Conversion</title>
+</head>
+<body>
+    <input type="file" id="oggFile" accept=".ogg" />
+    <button onclick="convertToText()">Convert to Text</button>
+    <div id="loadingMessage"></div>
+    <div id="transcriptContainer"></div>
+    <script>
+        const API_BASE_URL = "http://localhost:3000";
+
+        async function convertToText() {
+            const fileInput = document.getElementById("oggFile");
+            const transcriptContainer = document.getElementById("transcriptContainer");
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            const response = await fetch(`${API_BASE_URL}/convertToText`, { method: 'POST', body: formData });
+            const data = await response.json();
+
+            if (data.error) {
+                transcriptContainer.textContent = `Error: ${data.error}`;
+            } else {
+                transcriptContainer.textContent = data.transcript;
+            }
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OGG to Text Conversion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #007BFF;
+        }
+
+        #oggFile {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-bottom: 20px;
+            font-size: 1em;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #transcriptContainer {
+            border: 1px solid #ccc;
+            padding: 20px;
+            min-height: 100px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>OGG to Text Conversion</h1>
+    <h2>Upload your OGG audio file and convert it to text</h2>
+    <input type="file" id="oggFile" accept=".ogg" />
+    <button onclick="convertToText()">Convert to Text</button>
+    <div id="loadingMessage"></div>
+    <div id="transcriptContainer"></div>
+    <script>
+        const API_BASE_URL = "http://localhost:3000";
+
+        async function convertToText() {
+            const fileInput = document.getElementById("oggFile");
+            const transcriptContainer = document.getElementById("transcriptContainer");
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            const response = await fetch(`${API_BASE_URL}/convertToText`, { method: 'POST', body: formData });
+            const data = await response.json();
+
+            if (data.error) {
+                transcriptContainer.textContent = `Error: ${data.error}`;
+            } else {
+                transcriptContainer.textContent = data.transcript;
+            }
+        }
+    </script>
+</body>
+</html>
